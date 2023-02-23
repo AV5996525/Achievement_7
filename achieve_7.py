@@ -6,28 +6,28 @@
 #
 #This program will output the translation of the course code entered to it's respective course title along with student information. 
 from tabulate import tabulate
-course = {}
+course = {} #initializing empty dictionary
 course = {
     "ENG1221":"English",
     "CRE1342":"Careers",
     "NTB3070":"Networking Basics",
     "SCL1020":"Sociology"
 }
-stuInfo = {}
-firstN = input("Enter your first name:")
-stuInfo["First name"] = firstN
-lastN = input("Enter your last name:")
-stuInfo["Last name"] = lastN
-studN = input("Enter your student number:")
-stuInfo["Student #"] = studN
-print(list(course),"\nSelect your courses by entering any of these course codes: ENG1221, CRE1342 , NTB3070, SCL1020\nSeperate your choices with a ','")
-courSel = input().split(",")
-stuInfo["Course selection"] = courSel
-print("Your course registration summary:\n")
-print(tabulate([[(stuInfo.get("First name"))], [(stuInfo.get("Last name"))], [(stuInfo.get("Student #"))]], headers = ["Student Information:"]))
-print(tabulate([[('')]] , headers = ["Course's selected:"]))
-for x in courSel:
-    print(course.get(x))
+stuInfo = {} #initializing empty dictionary
+firstN = input("Enter your first name:") #Prompting input for field
+stuInfo["First name"] = firstN #Adding input into dictionary associated with value
+lastN = input("Enter your last name:") #Prompting input for field
+stuInfo["Last name"] = lastN  #Adding input into dictionary associated with value
+studN = input("Enter your student number:") #Prompting input for field
+stuInfo["Student #"] = studN  #Adding input into dictionary associated with value
+print(list(course),"\nSelect your courses by entering any of these course codes: ENG1221, CRE1342 , NTB3070, SCL1020\nSeperate your choices with a ','") #printing course items stored in dictrionary
+courSel = input().split(",") #Prompting input for field
+stuInfo["Course selection"] = courSel #Prompting input for field
+print("Your course registration summary:\n") #output title
+print(tabulate([[(stuInfo.get("First name"))], [(stuInfo.get("Last name"))], [(stuInfo.get("Student #"))]], headers = ["Student Information:"])) #output 
+print(tabulate([[('')]] , headers = ["Course's selected:"])) #output
+for x in courSel: # using for loop to cycle through each entry inputed by user
+    print(course.get(x)) #printing the corresponding value for each entry in coursel by referencing the course dictionary
 
 
 
