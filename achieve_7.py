@@ -1,3 +1,5 @@
+#
+from tabulate import tabulate
 course = {}
 course = {
     "ENG1221":"English",
@@ -16,11 +18,11 @@ print(list(course),"\nSelect your courses by entering any of these course codes:
 courSel = input().split(",")
 stuInfo["Course selection"] = courSel
 print("Your course registration summary:\n")
-print(stuInfo.get("First name"))
-print(stuInfo.get("Last name"))
+print(tabulate([[(stuInfo.get("First name"))], [(stuInfo.get("Last name"))], [(stuInfo.get("Student #"))]], headers = ["Student Information:"]))
+print(tabulate([[('')]] , headers = ["Course's selected:"]))
 for x in courSel:
     print(course.get(x))
-    
+
 
 
 
