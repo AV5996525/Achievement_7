@@ -1,4 +1,10 @@
+#Name:          achieve_7.py
+#Author:        AJ Varatharajan
+#Date Created:  February 23, 2023
+#Date Last Modified: February 23, 2023
+#Purpose: User is able to input student information and select courses by inputting the course code when prompted.
 #
+#This program will output the translation of the course code entered to it's respective course title along with student information. 
 from tabulate import tabulate
 course = {}
 course = {
