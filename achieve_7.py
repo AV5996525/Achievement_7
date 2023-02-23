@@ -14,6 +14,9 @@ studN = input("Enter your student number:")
 stuInfo["Student #"] = studN
 print(list(course),"\nSelect your courses by entering any of these course codes: ENG1221, CRE1342 , NTB3070, SCL1020\nSeperate your choices with a ','")
 courSel = input().split(",")
+stuInfo["Course selection"] = courSel
+print("Your course registration summary:\n",(stuInfo))
+
 
 
 
