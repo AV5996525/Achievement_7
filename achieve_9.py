@@ -20,20 +20,34 @@ lastN = input("Enter your last name:") #Prompting input for field
 stuInfo["Last name"] = lastN  #Adding input into dictionary associated with value
 studN = input("Enter your student number:") #Prompting input for field
 stuInfo["Student #"] = studN  #Adding input into dictionary associated with value
-print(list(course),"\nSelect your courses by entering any of these course codes: ENG1221, CRE1342 , NTB3070, SCL1020\nSeperate your choices with a ','") #printing course items stored in dictrionary
-courSel = input().split(",") #Prompting input for field
-stuInfo["Course selection"] = courSel #Prompting input for field
-print("Your course registration summary:\n") #output title
-print(tabulate([[(stuInfo.get("First name"))], [(stuInfo.get("Last name"))], [(stuInfo.get("Student #"))]], headers = ["Student Information:"])) #output 
-print(tabulate([[('')]] , headers = ["Course's selected:"])) #output
-for x in courSel: # using for loop to cycle through each entry inputed by user
-    print(course.get(x)) #printing the corresponding value for each entry in coursel by referencing the course dictionary
+courSel = {}
+print(dict(course),"\nSelect your courses by entering any of these course codes: ENG1221, CRE1342 , NTB3070, SCL1020\nSeperate your choices with a ','") #printing course items stored in dictrionary
+while True:
+    try:
+        courSel = input().split(",") #Prompting input for field
+        if  courSel.keys()  not in course.keys():
+            raise Exception
+        stuInfo["Course selection"] = courSel #Prompting input for field
+    except:
+        print("invalid entry")  
+        exiQ = input("Do you want to exit?")
+        if exiQ == "1":
+            exit()
+            break
+        elif exiQ == '2':
+            continue  
+    finally:
+        print("Your course registration summary:\n") #output title
+        print(tabulate([[(stuInfo.get("First name"))], [(stuInfo.get("Last name"))], [(stuInfo.get("Student #"))]], headers = ["Student Information:"])) #output 
+        print(tabulate([[('')]] , headers = ["Course's selected:"])) #output
+        for x in courSel: # using for loop to cycle through each entry inputed by user
+            print(course.get(x)) #printing the corresponding value for each entry in coursel by referencing the course dictionary
 
 
 
 
+        
     
-   
 
 
 
