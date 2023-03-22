@@ -1,4 +1,4 @@
-#Name:          achieve_7.py
+#Name:          achieve_9.py
 #Author:        AJ Varatharajan
 #Date Created:  February 23, 2023
 #Date Last Modified: February 23, 2023
@@ -51,10 +51,12 @@ while True:
         for x in courSel: # using for loop to cycle through each entry inputed by user
             print(course.get(x)) #printing the corresponding value for each entry in coursel by referencing the course dictionary
             if x in course.keys():
-                os.mkdir(newfilePath)
-                newFile = open(newfilePath, 'x')
+                newFile = open("schooreport.txt", 'w')
+                
                 newFile.write(x)
                 newFile.close
+                for y in stuInfo:
+                    newFile.write(y)
 
 
         
