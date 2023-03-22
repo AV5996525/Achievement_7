@@ -26,17 +26,21 @@ while True:
     try:
         courSel = input().split(",") #Prompting input for field
         for x in courSel:
-            if x not in course.keys():
-                raise Exception
+            if x not in course.keys() and len(x) == 0:
+                raise ValueError("2324")
+            elif x not in course.keys() and len(x) >= 0:
+                raise Exception("ABZXCDF")
         stuInfo["Course selection"] = courSel #Prompting input for field
-    except:
+    except ValueError:
         print("invalid entry")  
         exiQ = input("Do you want to exit?")
         if exiQ == "1":
             exit()
             break
         elif exiQ == '2':
-            continue  
+            continue 
+    except Exception:
+         print("These course codes do not exist: ", list(courSel))
     finally:
         print("Your course registration summary:\n") #output title
         print(tabulate([[(stuInfo.get("First name"))], [(stuInfo.get("Last name"))], [(stuInfo.get("Student #"))]], headers = ["Student Information:"])) #output 
