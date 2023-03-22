@@ -5,7 +5,10 @@
 #Purpose: User is able to input student information and select courses by inputting the course code when prompted.
 #
 #This program will output the translation of the course code entered to it's respective course title along with student information. 
+import os
 from tabulate import tabulate
+dirPath = r"C:\schoolreport.txt"
+newfilePath = r"C:\first"
 course = {} #initializing empty dictionary
 course = {
     "ENG1221":"English",
@@ -47,8 +50,11 @@ while True:
         print(tabulate([[('')]] , headers = ["Course's selected:"])) #output
         for x in courSel: # using for loop to cycle through each entry inputed by user
             print(course.get(x)) #printing the corresponding value for each entry in coursel by referencing the course dictionary
-
-
+            if x in course.keys():
+                os.mkdir(newfilePath)
+                newFile = open(newfilePath, 'x')
+                newFile.write(x)
+                newFile.close
 
 
         
