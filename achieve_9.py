@@ -7,8 +7,6 @@
 #This program will output the translation of the course code entered to it's respective course title along with student information. 
 import os
 from tabulate import tabulate
-dirPath = r"C:\schoolreport.txt"
-newfilePath = r"C:\first"
 course = {} #initializing empty dictionary
 course = {
     "ENG1221":"English",
@@ -53,10 +51,10 @@ while True:
             if x in course.keys():
                 newFile = open("schooreport.txt", 'w')
                 
-                newFile.write(x)
+                newFile.write(course.get(x))
                 newFile.close
-                for y in stuInfo:
-                    newFile.write(y)
+                for y in stuInfo.items():
+                    newFile.write(str(y))
 
 
         
