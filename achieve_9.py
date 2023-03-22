@@ -25,8 +25,9 @@ print(dict(course),"\nSelect your courses by entering any of these course codes:
 while True:
     try:
         courSel = input().split(",") #Prompting input for field
-        if  courSel.keys()  not in course.keys():
-            raise Exception
+        for x in courSel:
+            if x not in course.keys():
+                raise Exception
         stuInfo["Course selection"] = courSel #Prompting input for field
     except:
         print("invalid entry")  
